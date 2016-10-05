@@ -13,34 +13,32 @@ namespace ProductLibrary.Tests
     public class ProductTests
     {
         [TestMethod()]
-        public void GetResultSetTest_number_3_field_Cost()
+        public void GetResultSetTest_count_3_field_Cost()
         {
             //arange
             var target = new Product();
-            var number = 3;
+            var countInGroup = 3;
             var fieldName = "Cost";
-
             var expected = new int[] { 6, 15, 24, 21 };
 
             //act
-            IEnumerable<int> actual = target.GetResultSet(number, fieldName);
+            IEnumerable<int> actual = target.GetResultSet(countInGroup, fieldName);
 
             //assert
             expected.ToExpectedObject().ShouldEqual(actual);
         }
 
         [TestMethod()]
-        public void GetResultSetTest_number_4_field_Revenue()
+        public void GetResultSetTest_count_4_field_Revenue()
         {
             //arange
             var target = new Product();
-            var number = 4;
+            var countInGroup = 4;
             var fieldName = "Revenue";
-
             var expected = new int[] { 50, 66, 60 };
 
             //act
-            IEnumerable<int> actual = target.GetResultSet(number, fieldName);
+            IEnumerable<int> actual = target.GetResultSet(countInGroup, fieldName);
 
             //assert
             expected.ToExpectedObject().ShouldEqual(actual);
