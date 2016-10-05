@@ -13,7 +13,7 @@ namespace ProductLibrary
             if (number == 3) return new int[] { 6, 15, 24, 21 };
             if (number == 4) return new int[] { 50, 66, 60 };
 
-            return null;
+            return null;//test
         }
         
     }
