@@ -8,7 +8,7 @@ namespace ProductLibrary
 {
     public class CollectionHelper
     {
-        public IEnumerable<int> GetResultSet<T>(IEnumerable<T> dataSource, int countInGroup, string fieldName)
+        public IEnumerable<int> GetGroupSumByField<T>(IEnumerable<T> dataSource, int countInGroup, string fieldName)
         {
             return dataSource.Select((value, index) => new { GroupNum = index / countInGroup, value })
                 .GroupBy(group => group.GroupNum)

@@ -23,7 +23,7 @@ namespace ProductLibrary.Tests
             var expected = new int[] { 6, 15, 24, 21 };
 
             //act
-            IEnumerable<int> actual = target.GetResultSet(dataSource, countInGroup, fieldName);
+            IEnumerable<int> actual = target.GetGroupSumByField(dataSource, countInGroup, fieldName);
 
             //assert
             expected.ToExpectedObject().ShouldEqual(actual);
@@ -40,7 +40,7 @@ namespace ProductLibrary.Tests
             var expected = new int[] { 50, 66, 60 };
 
             //act
-            IEnumerable<int> actual = target.GetResultSet(dataSource, countInGroup, fieldName);
+            IEnumerable<int> actual = target.GetGroupSumByField(dataSource, countInGroup, fieldName);
 
             //assert
             expected.ToExpectedObject().ShouldEqual(actual);
