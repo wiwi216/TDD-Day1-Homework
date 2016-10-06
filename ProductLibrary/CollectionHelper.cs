@@ -8,13 +8,12 @@ namespace ProductLibrary
 {
     public class CollectionHelper
     {
-        public IEnumerable<int> GetResultSet(IEnumerable<object> dataSource, int countInGroup, string fieldName)
+        public IEnumerable<int> GetResultSet<T>(IEnumerable<T> dataSource, int countInGroup, string fieldName)
         {
-            if (countInGroup == 3) return new int[] { 6, 15, 24, 21 };
-            if (countInGroup == 4) return new int[] { 50, 66, 60 };
-
-            return null;//test
+            return dataSource.Select((value, index) => new { GroupNum = index / countInGroup, value })
+                .GroupBy(group => group.GroupNum)
+                .Select(group => group.Select(g => Convert.ToInt32(g.value.GetType().GetProperty(fieldName).GetValue(g.value, null))).Sum())
+                .ToArray();
         }
-        
     }
 }
